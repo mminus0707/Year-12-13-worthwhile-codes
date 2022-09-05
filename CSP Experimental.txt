@@ -1,0 +1,91 @@
+import random
+score1 = 0
+score2 = 0
+
+reg_us1 = input(" Do you have a registered account?  y/n ") 
+if reg_us1 == "y":  
+  ut = open("users.txt","r")
+  print(ut)
+  ut.close
+elif reg_us1 == "n":  
+  name = input(" Enter your username ")
+  password = input(" Enter your password ")
+  ut = open("users.txt","a")
+  ut.write(name)
+  ut.write(" / ")
+  ut.write(password)
+  ut.write("\n")
+  ut.close
+else:
+  print(" Invalid letter")
+
+reg_us2 = input(" Do you have a registered account?  y/n ")
+if reg_us2 == "y":  
+  ut = open("users.txt","r")
+  print(ut)
+  ut.close
+elif reg_us2 == "n":  
+  name2 = input(" Enter your username ")
+  password2 = input(" Enter your password ")
+  ut2 = open("users.txt","a")
+  ut2.write(name2)
+  ut2.write(" / ")
+  ut2.write(password2)
+  ut2.write("\n")
+  ut2.close
+else:
+  print(" Invalid letter")
+
+for x in range(0,5):  
+  dice = random.randint(1,6)
+  dice2 = random.randint(1,6)
+  dice3 = random.randint(1,6)
+  dice4 = random.randint(1,6)
+  total = dice + dice2
+  total2 = dice3 + dice4
+  print("player1 rolled ",dice,dice2)
+  print(" ")
+  print("player2 rolled",dice3,dice4)
+  if total % 2 == 0: 
+    total = total + 10
+  else:
+    total = total - 5
+
+  if total2 % 2 == 0: 
+    total2 = total2 + 10
+  else:
+    total2 = total2 - 5
+  print(" ")
+  print(" SCORES AT THE END OF THE ROUND")
+  print(" ")
+  print("player1 scored",total)
+  print(" ")
+  print("player2 scores",total2)
+  print(" ")
+  print(" NEXT ROUND")
+  print(" ")
+  score2 = score2 + total2
+  score1 = score1 + total
+
+print(" ")
+print(" TOTAL SCORES")
+print(" ")
+print("player1's total is ",score1)
+print("player2's total is ",score2)
+print(" ")
+if score1 > score2: 
+  print("player1 is the winner")
+elif score2 > score1: 
+  print("player2 is the winner")
+else: 
+  final1 = random.randint(1,6)
+  final2 = random.randint(1,6)
+  print(" ")
+  if final1 > final2: 
+    print("player1 won in final rolls", final1)
+  elif final2 > final1: 
+    print("player2 won in final rolls",final2)
+  while final1 == final2:  
+    rll1 = random.randint
+    rll2 = random.randint
+  

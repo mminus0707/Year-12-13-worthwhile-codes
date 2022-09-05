@@ -1,0 +1,550 @@
+from datetime import date
+
+today = date.today()
+
+print(today)
+#player input
+ruq = input("Are you a registered user ? (PLAYER 1) y/n ")
+if ruq == "y":
+    player1 = input(" PLAYER 1 = ")
+    password = input(" PASSWORD = ")
+if ruq == "n":
+    player1 = input(" PLAYER 1 = ")
+    password = input(" Password = ")
+    save1 = input(" Do you want your name to be saved? y/n ")
+    if save1 == "y":
+        un = open("users.txt", "a")
+        un.write(str(player1))
+        un.write(" / ")
+        un.write(str(password))
+        un.write("\n")
+        un.close
+        print("Done")
+    if save1 == "n":
+        print(
+            "You can't play this game without a confirmed account, so your name is already saved by the system."
+        )
+        un = open("users.txt", "a")
+        un.write(str(player1))
+        un.write(" / ")
+        un.write(str(password))
+        un.write("\n")
+        un.close
+    else: 
+      print("bruh ")
+print(" ")
+
+ruq2 = input("Are you a registered user ? (PLAYER 2) y/n ")
+if ruq2 == "y":
+    player2 = input(" PLAYER 2 = ")
+    password2 = input(" PASSWORD =")
+if ruq2 == "n":
+    player2 = input(" PLAYER 2 = ")
+    password2 = input(" Password = ")
+    save2 = input(" Do you want your name to be saved ? y/n ")
+    if save2 == "y":
+        un = open("users.txt", "a")
+        un.write(str(player2))
+        un.write(" / ")
+        un.write(str(password))
+        un.write("\n")
+        un.close
+        print("Done")
+    if save2 == "n":
+        print(
+            "You can't play this game without a confirmed account, so your name is already saved by the system."
+        )
+        un1 = open("users.txt", "a")
+        un1.write(str(player2))
+        un.write(" / ")
+        un.write(str(password2))
+        un1.write("\n")
+        un1.close
+
+import replit
+replit.clear()
+
+#values
+import random
+selected1 = random.randint(1, 6)
+selected2 = random.randint(1, 6)
+selected3 = random.randint(1, 6)
+selected4 = random.randint(1, 6)
+
+player1total = selected1 + selected3
+
+#extraroll
+if selected1 == selected3:
+    roll1 = random.randint(1, 6)
+    player1total = selected1 + selected3 + roll1
+
+#scoring
+if player1total % 2 == 0:
+    player1total = player1total + 10
+else:
+    player1total = player1total - 5
+#printing
+print(player1, "rolled", selected1, "and", selected3)
+
+if selected1 == selected3:
+    print(player1, "rolled ", roll1, "too")
+
+print(player1, "'s score is", player1total)
+
+print("")
+
+#player2total
+player2total = selected2 + selected4
+#extraroll
+if selected2 == selected4:
+    roll2 = random.randint(1, 6)
+    player2total = selected2 + selected4 + roll2
+#scoring
+if player2total % 2 == 0:
+    player2total = player2total + 10
+else:
+    player2total = player2total - 5
+
+#printing
+print(player2, "rolled", selected2, "and", selected4)
+
+if selected2 == selected4:
+    print(player2, "rolled ", roll2, " too")
+
+print(player2, "'s score is", player2total)
+
+print(" ")
+
+#ROUND 2
+#########################################################################################################
+
+print(" ")
+
+round2 = input("Continue to round 2 ? y/n | ")
+#round2 n
+################################################################################################################
+if round2 == "n":
+    replit.clear()
+    if player1total > player2total:
+        print(player1, " is the winner with", player1total, "and ", player2,
+              " scored", player2total)
+
+    if player2total > player1total:
+        print(player2, " is the winner with", player2total, "and ", player1,
+              " scored", player1total)
+    #draws round2
+    elif player1total == player2total:
+        froll1 = random.randint(1, 6)
+        froll2 = random.randint(1, 6)
+        print(player1, "rolled ", froll1, "in final rolls and ", player2,
+              "rolled ", froll2)
+        if froll1 > froll2:
+            print(player1, "won in final rolls with ", froll1)
+        else:
+            print(player2, "won in final rolls with ", froll2)
+        #extra rolls round2
+        while froll1 == froll2:
+            froll3 = random.randint(1, 6)
+            froll4 = random.randint(1, 6)
+        print(player1, "rolled", froll3)
+        print(player2, "rolled", froll4)
+        if froll3 > froll4:
+            print(player1, "won in final rolls with ", froll3)
+        else:
+            print(player2, "won in final rolls with ", froll4)
+#round2 y
+#####################################################################################################
+if round2 == "y":
+
+    replit.clear()
+
+    selected5 = random.randint(1, 6)
+    selected6 = random.randint(1, 6)
+    selected7 = random.randint(1, 6)
+    selected8 = random.randint(1, 6)
+
+    player1total = player1total + selected5 + selected7
+
+    #extraroll round2
+    if selected5 == selected7:
+        roll3 = random.randint(1, 6)
+        player1total = player1total + roll3
+
+#scoring round2
+    if player1total % 2 == 0:
+        player1total = player1total + 10
+    else:
+        player1total = player1total - 5
+#printing round2
+    print(player1, "rolled", selected5, "and", selected7)
+
+    if selected5 == selected7:
+        print(player1, "rolled ", roll3, "too")
+
+    print(player1, "'s score is", player1total)
+
+    print(" ")
+
+    #player2total round2
+    player2total = player2total + selected8 + selected8
+    #extraroll round2
+    if selected6 == selected8:
+        roll4 = random.randint(1, 6)
+        player2total = player2total + roll4
+#scoring round2
+    if player2total % 2 == 0:
+        player2total = player2total + 10
+    else:
+        player2total = player2total - 5
+
+#printing round2
+    print(player2, "rolled", selected6, "and", selected8)
+
+    if selected6 == selected8:
+        print(player2, "rolled ", roll4, " too")
+
+    print(player2, "'s score is", player2total)
+
+    print(" ")
+    #round3
+    ################################################################################################
+    round3 = input("Continue to round 3? y/n | ")
+    #round3 n
+    ##################################################################################################
+    if round3 == "n":
+        replit.clear()
+        if player1total > player2total:
+            print(player1, " is the winner with", player1total, "and ",
+                  player2, " scored", player2total)
+
+        if player2total > player1total:
+            print(player2, " is the winner with", player2total, "and ",
+                  player1, " scored", player1total)
+    #draws round3
+        elif player1total == player2total:
+            froll5 = random.randint(1, 6)
+            froll6 = random.randint(1, 6)
+            print(player1, "rolled ", froll5, "in final rolls and ", player2,
+                  "rolled ", froll6)
+            if froll5 > froll6:
+                print(player1, "won in final rolls with ", froll5)
+            else:
+                print(player2, "won in final rolls with ", froll6)
+    #extra rolls round3
+            while froll5 == froll6:
+                froll7 = random.randint(1, 6)
+                froll8 = random.randint(1, 6)
+                print(player1, "rolled", froll7)
+                print(player2, "rolled", froll8)
+            if froll7 > froll8:
+                print(player1, "won in final rolls with ", froll7)
+            else:
+                print(player2, "won in final rolls with ", froll8)
+    #round3 y
+    #####################################################################################################
+    if round3 == "y":
+
+        replit.clear()
+
+        selected9 = random.randint(1, 6)
+        selected10 = random.randint(1, 6)
+        selected11 = random.randint(1, 6)
+        selected12 = random.randint(1, 6)
+
+        player1total = player1total + selected9 + selected11
+
+        #extraroll round3
+        if selected9 == selected11:
+            roll5 = random.randint(1, 6)
+            player1total = player1total + roll5
+
+        #scoring round3
+        if player1total % 2 == 0:
+            player1total = player1total + 10
+        else:
+            player1total = player1total - 5
+        #printing round3
+        print(player1, "rolled", selected9, "and", selected11)
+
+        if selected9 == selected11:
+            print(player1, "rolled ", roll5, "too")
+
+        print(player1, "'s score is", player1total)
+
+        print("")
+
+        #player2total round3
+        player2total = player2total + selected10 + selected12
+        #extraroll round3
+        if selected10 == selected12:
+            roll6 = random.randint(1, 6)
+            player2total = player2total + roll6
+            #scoring round3
+        if player2total % 2 == 0:
+            player2total = player2total + 10
+        else:
+            player2total = player2total - 5
+
+        #printing round3
+        print(player2, "rolled", selected10, "and", selected12)
+
+        if selected10 == selected12:
+            print(player2, "rolled ", roll6, " too")
+
+        print(player2, "'s score is", player2total)
+
+        print(" ")
+
+        #round4
+        #############################################################################################
+        round4 = input("Continue to round 4 ? y/n | ")
+        if round4 == "n":
+            replit.clear()
+            if player1total > player2total:
+                print(player1, " is the winner with", player1total, "and ",
+                      player2, " scored", player2total)
+            if player2total > player1total:
+                print(player2, " is the winner with", player2total, "and ",
+                      player1, " scored", player1total)
+            #draws round4
+            elif player1total == player2total:
+                froll9 = random.randint(1, 6)
+                froll10 = random.randint(1, 6)
+                print(player1, "rolled ", froll9, "in final rolls and ",
+                      player2, "rolled ", froll10)
+                if froll9 > froll10:
+                    print(player1, "won in final rolls with ", froll9)
+                else:
+                    print(player2, "won in final rolls with ", froll10)
+                #extra rolls round4
+                while froll9 == froll10:
+                    froll11 = random.randint(1, 6)
+                    froll12 = random.randint(1, 6)
+                    print(player1, "rolled", froll11)
+                    print(player2, "rolled", froll12)
+                if froll11 > froll12:
+                    print(player1, "won in final rolls with ", froll11)
+                else:
+                    print(player2, "won in final rolls with ", froll12)
+
+        #round4yes#####################################################################
+        if round4 == "y":
+            replit.clear()
+
+            selected13 = random.randint(1, 6)
+            selected14 = random.randint(1, 6)
+            selected15 = random.randint(1, 6)
+            selected16 = random.randint(1, 6)
+
+            player1total = player1total + selected13 + selected15
+
+            #extraroll round4
+            if selected13 == selected15:
+                roll5 = random.randint(1, 6)
+                player1total = player1total + roll5
+
+        #scoring round4
+            if player1total % 2 == 0:
+                player1total = player1total + 10
+            else:
+                player1total = player1total - 5
+        #printing round4
+            print(player1, "rolled", selected13, "and", selected15)
+
+            if selected13 == selected15:
+                print(player1, "rolled ", roll5, "too")
+
+            print(player1, "'s score is", player1total)
+
+            print("")
+
+            #player2total round4
+            player2total = player2total + selected14 + selected16
+            #extraroll round4
+            if selected14 == selected16:
+                roll6 = random.randint(1, 6)
+                player2total = player2total + roll6
+        #scoring round4
+            if player2total % 2 == 0:
+                player2total = player2total + 10
+            else:
+                player2total = player2total - 5
+
+        #printing round4
+            print(player2, "rolled", selected14, "and", selected16)
+
+            if selected14 == selected16:
+                print(player2, "rolled ", roll6, " too")
+
+            print(player2, "'s score is", player2total)
+
+            print(" ")
+            #round5
+            #############################################################################################
+            round5 = input("Continue to round 5 ? y/n | ")
+            if round5 == "n":
+                replit.clear()
+                if player1total > player2total:
+                    print(player1, " is the winner with", player1total, "and ",
+                          player2, " scored", player2total)
+                if player2total > player1total:
+                    print(player2, " is the winner with", player2total, "and ",
+                          player1, " scored", player1total)
+                #draws round5
+                elif player1total == player2total:
+                    froll13 = random.randint(1, 6)
+                    froll14 = random.randint(1, 6)
+                    print(player1, "rolled ", froll13, "in final rolls and ",
+                          player2, "rolled ", froll14)
+                    if froll13 > froll14:
+                        print(player1, "won in final rolls with ", froll13)
+                    else:
+                        print(player2, "won in final rolls with ", froll14)
+                    #extra rolls round5
+                    while froll13 == froll14:
+                        froll15 = random.randint(1, 6)
+                        froll16 = random.randint(1, 6)
+                        print(player1, "rolled", froll15)
+                        print(player2, "rolled", froll16)
+                    if froll15 > froll16:
+                        print(player1, "won in final rolls with ", froll15)
+                    else:
+                        print(player2, "won in final rolls with ", froll16)
+        #round5yes#####################################################################
+            if round5 == "y":
+                replit.clear()
+
+                selected17 = random.randint(1, 6)
+                selected18 = random.randint(1, 6)
+                selected19 = random.randint(1, 6)
+                selected20 = random.randint(1, 6)
+
+                player1total = player1total + selected17 + selected19
+
+                #extraroll round5
+                if selected17 == selected19:
+                    roll7 = random.randint(1, 6)
+                    player1total = player1total + roll7
+
+            #scoring round5
+                if player1total % 2 == 0:
+                    player1total = player1total + 10
+                else:
+                    player1total = player1total - 5
+            #printing round5
+                print(player1, "rolled", selected17, "and", selected19)
+
+                if selected17 == selected19:
+                    print(player1, "rolled ", roll7, "too")
+
+                print(player1, "'s score is", player1total)
+
+                print("")
+
+                #player2total round5
+                player2total = player2total + selected18 + selected20
+                #extraroll round5
+                if selected18 == selected20:
+                    roll8 = random.randint(1, 6)
+                    player2total = player2total + roll8
+            #scoring round5
+                if player2total % 2 == 0:
+                    player2total = player2total + 10
+                else:
+                    player2total = player2total - 5
+
+                replit.clear()
+
+                #printing round5
+                print(player1, "rolled", selected17, "and", selected19)
+
+                if selected17 == selected19:
+                    print(player1, "rolled ", roll7, " too")
+
+                print(player1, "'s score is", player1total)
+
+                print(" ")
+
+                #printing round5
+                print(player2, "rolled", selected18, "and", selected20)
+
+                if selected18 == selected20:
+                    print(player2, "rolled ", roll8, " too")
+
+                print(player2, "'s score is", player2total)
+
+                print(" ")
+
+                if player1total > player2total:
+                    print(player1, " is the winner with", player1total, "and ",
+                          player2, " scored", player2total)
+                if player2total > player1total:
+                    print(player2, " is the winner with", player2total, "and ",
+                          player1, " scored", player1total)
+                #draws total
+                elif player1total == player2total:
+                    froll17 = random.randint(1, 6)
+                    froll18 = random.randint(1, 6)
+                    print(player1, "rolled ", froll15, "in final rolls and ",
+                          player2, "rolled ", froll16)
+                    if froll17 > froll18:
+                        print(player1, "won in final rolls with ", froll17)
+                    else:
+                        print(player2, "won in final rolls with ", froll18)
+                    #extra rolls round5
+                    while froll17 == froll18:
+                        froll19 = random.randint(1, 6)
+                        froll20 = random.randint(1, 6)
+                        print(player1, "rolled", froll19)
+                        print(player2, "rolled", froll20)
+                    if froll19 > froll20:
+                        print(player1, "won in final rolls with ", froll19)
+                    else:
+                        print(player2, "won in final rolls with ", froll20)
+
+if player2total > 49:
+    hs = open("highscores.txt", "a")
+    hs.write(player2)
+    hs.write(" ")
+    hs.write(str(player2total))
+    hs.write(" ")
+    hs.write(str(today))
+    hs.write("\n")
+    hs.close
+
+if player1total > 49:
+    hs1 = open("highscores.txt", "a")
+    hs1.write(player1)
+    hs1.write(" ")
+    hs1.write(str(player1total))
+    hs1.write(" ")
+    hs1.write(str(today))
+    hs1.write("\n")
+    hs1.close
+    
+#added these cus the code at the beginning wasnt saving user names
+if ruq2 == "n":
+    un = open("users.txt", "a")
+    un.write(player2)
+    un.write(" / ")
+    un.write(password2)
+    un.write("\n")
+    un.close
+
+if ruq == "n":
+    un1 = open("users.txt", "a")
+    un1.write(player1)
+    un1.write(" / ")
+    un.write(password)
+    un1.write("\n")
+    un1.close
+
+print(" ")
+print(" ")
+print(" ")
+print("HIGH SCORES")
+print(" ")
+print(today)
+hr = open("highscores.txt", "r")
+print(hr.read())
+hr.close
